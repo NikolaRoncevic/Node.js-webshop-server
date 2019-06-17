@@ -18,6 +18,7 @@
   "homepage": "https://github.com/NikolaRoncevic/WebShop#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongodb": "^3.2.7",
     "mongoose": "^5.6.0",
     "nodemon": "^1.19.1"
   }
