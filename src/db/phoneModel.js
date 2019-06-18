@@ -41,7 +41,8 @@ const Phone = mongoose.model('Phone', {
     Discount: {
         type: Boolean,
         default: false
-    }
+    },
+
 
 })
 

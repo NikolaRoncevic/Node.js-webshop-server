@@ -85,18 +85,21 @@ app.post('/comment/:id', (req, res) => {
 
 
     comment.save().then((data) => {
+        res.status(201).send();
         console.log(data)
     }).catch((err) => {
+        res.status(400)
         console.log(err);
     })
 
 
 })
 
+//zamisao je da ovu funkciju pozove komponenta na product stranici i da onda popuni komentare tekstom iz ovih objekata,koji ce biti povezani sa konkretnim proizvodom
 app.get('/comments/:id', (req, res) => {
 
     Comment.find({ productId: req.params.id }).then((data) => {
-        res.send(JSON.stringify(data));
+        res.send(JSON.stringify(data))
     })
 
 })
