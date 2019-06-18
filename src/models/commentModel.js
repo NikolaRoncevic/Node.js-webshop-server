@@ -9,7 +9,7 @@ const Comment = mongoose.model('Comment', {
         type: String,
         required: true
     },
-    Title: {
+    title: {
         type: String,
         default: 'Comment'
     }
