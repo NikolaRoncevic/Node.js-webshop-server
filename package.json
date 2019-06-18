@@ -1,25 +1,26 @@
 {
-  "name": "webshoplevi",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NikolaRoncevic/WebShop.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NikolaRoncevic/WebShop/issues"
-  },
-  "homepage": "https://github.com/NikolaRoncevic/WebShop#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^3.2.7",
-    "mongoose": "^5.6.0",
-    "nodemon": "^1.19.1"
-  }
+    "name": "webshoplevi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon ./src/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NikolaRoncevic/WebShop.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NikolaRoncevic/WebShop/issues"
+    },
+    "homepage": "https://github.com/NikolaRoncevic/WebShop#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongodb": "^3.2.7",
+        "mongoose": "^5.6.0",
+        "nodemon": "^1.19.1"
+    }
 }

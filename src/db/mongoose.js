@@ -15,3 +15,44 @@ something.save().then((test) => {
 }).catch((error) => {
     console.log(error);
 }) */
+
+/* const Samsung = new Phone({
+    name: 'Gwtertert ' + Math.random(),
+    screenSize: 15.6,
+    processor: 'i7 7700',
+    graphicCard: 'gtx1050',
+    producer: 'Samsung',
+    price: 20000
+});
+const Apple = new Phone({
+    name: 'iphone 6ertertert' + Math.random(),
+    screenSize: 15.6,
+    processor: 'i7 7700',
+    graphicCard: 'gtx1050',
+    producer: 'Apple',
+    price: 20000
+});
+const Lg = new Phone({
+    name: 'LG good ertertertert' + Math.random(),
+    screenSize: 15.6,
+    processor: 'i7 7700',
+    graphicCard: 'gtx1050',
+    producer: 'Samsung',
+    price: 20000
+});
+
+Samsung.save().then((obj) => {
+    console.log('new object added')
+}).catch((e) => {
+    console.log(e)
+})
+Apple.save().then((obj) => {
+    console.log('new object added')
+}).catch((e) => {
+    console.log(e)
+})
+Lg.save().then((obj) => {
+    console.log('new object added')
+}).catch((e) => {
+    console.log(e)
+}) */
