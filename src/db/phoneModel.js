@@ -19,6 +19,10 @@ const Phone = mongoose.model('Phone', {
         type: String,
         required: true
     },
+    ramMemory: {
+        type: String,
+        required: true
+    },
     producer: {
         type: String,
         enum: ['Samsung', 'Apple', 'LG', 'Huawvei'],
@@ -28,6 +32,15 @@ const Phone = mongoose.model('Phone', {
         type: Number,
         required: true,
         min: 0
+    },
+    image: {
+        type: String,
+        required: true
+
+    },
+    Discount: {
+        type: Boolean,
+        default: false
     }
 
 })
