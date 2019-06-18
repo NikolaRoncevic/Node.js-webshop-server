@@ -42,6 +42,10 @@ const Phone = mongoose.model('Phone', {
         type: Boolean,
         default: false
     },
+    NumberOfPreviews: {
+        type: Number,
+        default: 0
+    }
 
 
 })

@@ -8,6 +8,10 @@ const Comment = mongoose.model('Comment', {
     text: {
         type: String,
         required: true
+    },
+    Title: {
+        type: String,
+        default: 'Comment'
     }
 })
 

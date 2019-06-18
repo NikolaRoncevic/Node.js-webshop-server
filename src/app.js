@@ -8,6 +8,15 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000;
 
+/*
+    Pitanja:
+        Kako podesiti zahteva da bude dostupan samo frontendu odnosno da moze samo automatski da se izvrsi neki get zahtev bez mogucnosti izvrsenja istog kroz browser.
+        Da li za pocetnu stranu za najpregledanije i istaknute praviti dva odvojena get zahteva ili nekako napraviti u jednom zahtevu da vrati niz od dva niza dokumenata
+        Da li za korpu,posto ne radimo pracenje sesije,napraviti novu kolekciju dokumenata u koju ce se automatski ubacivati dokument sa eventualno jos kolicinom,i onda odlaskom
+        na korpu vrsiti get zahtev na tu kolekicju i samo puniti komponente tim podacima.
+    
+*/
+
 app.use(express.json())
     //app.use(bodyParser.json())
 
@@ -60,7 +69,7 @@ app.get('/search', (req, res) => {
 
 //get request for product page,activates when someone clicks on the title of product.
 app.get('/product/:id', (req, res) => {
-    Phone.findById(query.params.id).then((data) => {
+    Phone.findById(req.query.id).then((data) => {
 
         res.status(200).send(JSON.stringify(data))
 
@@ -102,6 +111,10 @@ app.get('/comments/:id', (req, res) => {
         res.send(JSON.stringify(data))
     })
 
+})
+
+app.get('/cart', (req, res) => {
+    //todo : napraviti default stranicu za korpu
 })
 
 
