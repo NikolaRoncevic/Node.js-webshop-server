@@ -9,10 +9,8 @@ var router = new express.Router();
 */
 router.get('/search', (req, res) => {
     //todo: add search based on price range,price higher than,lower than
-    let { producer, ramMemory, processor, graphicCard, name } = req.query;
+    let { producer, ramMemory, processor, graphicCard, search } = req.query;
     let query = {};
-    if (name)
-        query.name = name.split('%')
     if (producer)
         query.producer = producer.split('%')
     if (ramMemory)
@@ -21,14 +19,14 @@ router.get('/search', (req, res) => {
         query.processor = processor.split('%')
     if (graphicCard)
         query.graphicCard = graphicCard.split('%')
-    Phone.find(query).then((data) => {
+        /* Phone.find(query).then((data) => {
 
-        res.status(200).send(JSON.stringify(data))
+            res.status(200).send(JSON.stringify(data))
 
-    }).catch((e) => {
-        res.status(400).send('Bad request')
-        console.log(e)
-    })
+        }).catch((e) => {
+            res.status(400).send('Bad request')
+            console.log(e)
+        }) */
 })
 
 module.exports = router
