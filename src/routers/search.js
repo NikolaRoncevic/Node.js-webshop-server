@@ -60,7 +60,7 @@ router.get('/search', async(req, res) => {
         return res.status(200).send(JSON.stringify(products))
     }
     if (filteredBySearch.length === 0) {
-        return res.status(400).send()
+        return res.status(200).send()
     }
     res.status(200).send(filteredBySearch)
 })
