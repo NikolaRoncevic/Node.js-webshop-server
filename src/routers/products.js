@@ -4,7 +4,7 @@ var Phone = require('./../models/phoneModel.js')
 
 
 //get request for product page,activates when someone clicks on the title of product.
-router.get('/product/:id', async(req, res) => {
+router.get('/:id', async(req, res) => {
     try {
         let phone = await Phone.findById(req.params.id)
         if (!phone) {
@@ -18,7 +18,7 @@ router.get('/product/:id', async(req, res) => {
 
 })
 
-router.put('/product/:id', async(req, res) => {
+router.put('/:id', async(req, res) => {
     try {
         let phone = await Phone.findByIdAndUpdate({ id: req.params.id }, { $inc: { NumberOfPreviews: 1 } }, { new: true })
         if (!phone) {

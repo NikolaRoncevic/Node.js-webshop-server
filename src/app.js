@@ -1,7 +1,4 @@
 const express = require('express')
-const mongoose = require('./db/mongoose.js')
-const Phone = require('./models/phoneModel.js')
-const Comment = require('./models/commentModel.js')
 const commentsRouter = require('./routers/comments.js')
 const searchRouter = require('./routers/search.js')
 const productsRouter = require('./routers/products.js')
@@ -10,6 +7,7 @@ const infoRouter = require('./routers/info.js')
 const homePageRouter = require('./routers/homePage.js')
 
 const bodyParser = require('body-parser')
+const discountedPhone = require('./models/discounterPhonesModel.js')
 
 const app = express()
 const port = 3000;
@@ -23,14 +21,16 @@ const port = 3000;
 */
 
 app.use(express.json())
-app.use(commentsRouter)
+app.use('/comments', commentsRouter)
 app.use(searchRouter)
-app.use(productsRouter)
-app.use(shoppingCartRouter)
+app.use('/product', productsRouter)
+app.use('/cart', shoppingCartRouter)
 app.use(infoRouter)
 app.use(homePageRouter)
 
 //app.use(bodyParser.json())
+
+
 
 
 

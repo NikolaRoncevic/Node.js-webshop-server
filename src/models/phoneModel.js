@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 const Phone = mongoose.model('Phone', {
     name: {
         type: String,
@@ -37,17 +38,7 @@ const Phone = mongoose.model('Phone', {
         type: String,
         required: true
 
-    },
-    Discount: {
-        type: Boolean,
-        default: false
-    },
-    NumberOfPreviews: {
-        type: Number,
-        default: 0
     }
-
-
 })
 
 module.exports = Phone
