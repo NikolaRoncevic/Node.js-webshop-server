@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const phone = require('./phoneModel')
+const Schema = mongoose.Schema;
 
 //neka glupost samo da vidim kako ide ovo
-const Phone = new Schema({ name: 'string' })
+
 
 const discountedPhone = mongoose.model('discountedPhone', {
     phone: {
-        type: [Phone],
+        type: phone.phoneSchema,
         required: true
     },
     discounted: {
@@ -17,6 +18,7 @@ const discountedPhone = mongoose.model('discountedPhone', {
     discountPrecentage: {
         type: Number,
         required: true,
+        default: 20,
         min: 0,
         max: 100
 

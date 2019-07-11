@@ -1,7 +1,7 @@
 var express = require('express')
 var Phone = require('./../models/phoneModel.js')
-var router = new express.Router();
-const delimiterFilters = '%';
+var router = new express.Router()
+const delimiterFilters = '%'
 const delimiterSearchQuery = ' '
 
 
@@ -47,8 +47,8 @@ router.get('/search', async(req, res) => {
         for (searchParam of searchArray) {
             for (product of products) {
 
-                if (searchParam === product.name.toLowerCase()) {
-
+                if (searchParam === product._id) {
+                    console.log(searchParam + '   ' + product._id)
                     continue
                 }
                 if (searchParam === product.producer.toLowerCase()) {
@@ -59,6 +59,7 @@ router.get('/search', async(req, res) => {
                     if (products[i] === product) {
                         console.log('izbacio bratica')
                         products.splice(i, 1)
+                        i--;
                     }
                 }
             }

@@ -5,6 +5,7 @@ var Phone = require('./../models/phoneModel.js')
 
 //get request for product page,activates when someone clicks on the title of product.
 router.get('/:id', async(req, res) => {
+    console.log('dosao')
     try {
         let phone = await Phone.findById(req.params.id)
         if (!phone) {

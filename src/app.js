@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('./db/mongoose')
 const commentsRouter = require('./routers/comments.js')
 const searchRouter = require('./routers/search.js')
 const productsRouter = require('./routers/products.js')
@@ -7,7 +8,7 @@ const infoRouter = require('./routers/info.js')
 const homePageRouter = require('./routers/homePage.js')
 
 const bodyParser = require('body-parser')
-const discountedPhone = require('./models/discounterPhonesModel.js')
+const discountedPhone = require('./models/discountedPhonesModel.js')
 
 const app = express()
 const port = 3000;

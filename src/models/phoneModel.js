@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-
-const Phone = mongoose.model('Phone', {
+const Schema = mongoose.Schema;
+const phoneSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -41,4 +41,7 @@ const Phone = mongoose.model('Phone', {
     }
 })
 
-module.exports = Phone
+
+const Phone = mongoose.model('Phone', phoneSchema)
+
+module.exports = { Phone, phoneSchema }
