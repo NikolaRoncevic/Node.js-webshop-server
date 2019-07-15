@@ -13,16 +13,19 @@ const phone = new Phone({
     price: '15000',
     image: 'nema jos'
 });
-const phone1 = undefined;
-try {
-    phone1 = Phone.find({ _id: '5d2701b5c37b2644c4141aae' })
 
-} catch (e) {
-    console.log(e);
-}
-const discountedPhone1 = new discountedPhone({
-    phone: phone1,
+
+
+var discountedPhone1 = new discountedPhone({
+    phone: phone,
     discounted: true,
     precentage: 30
 
+})
+
+discountedPhone1.save().then(() => {
+    console.log('saved');
+}).catch((error) => {
+
+    console.log(error);
 })
