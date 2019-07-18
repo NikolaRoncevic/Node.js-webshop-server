@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
+const CommentSchema = require('./commentModel.js')
 
 const Schema = mongoose.Schema;
 const phoneSchema = new Schema({
+    phoneId: {
+        type: Number,
+        unique: true
+    },
     name: {
         type: String,
         required: true
@@ -37,6 +42,11 @@ const phoneSchema = new Schema({
     image: {
         type: String,
         required: true
+
+    },
+    comments: { //dodavanje komentara 
+        type: [CommentSchema],
+        default: undefined
 
     }
 })

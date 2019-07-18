@@ -1,10 +1,7 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 
-const Comment = mongoose.model('Comment', {
-    productId: {
-        type: String,
-        required: true
-    },
+const Comment = new Schema({
     text: {
         type: String,
         required: true

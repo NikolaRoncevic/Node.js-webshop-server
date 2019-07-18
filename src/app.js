@@ -8,7 +8,6 @@ const infoRouter = require('./routers/info.js')
 const homePageRouter = require('./routers/homePage.js')
 
 const bodyParser = require('body-parser')
-const discountedPhone = require('./models/discountedPhonesModel.js')
 
 const app = express()
 const port = 3000;
