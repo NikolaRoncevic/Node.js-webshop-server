@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Phone = require('../models/phoneModel.js').Phone
+const Phone = require('../models/phoneModel.js')
 const discountedPhone = require('../models/discountedPhoneModel.js')
 mongoose.connect('mongodb://127.0.0.1:27017/test3', { useNewUrlParser: true });
 

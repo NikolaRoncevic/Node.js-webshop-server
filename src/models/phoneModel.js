@@ -54,4 +54,4 @@ const phoneSchema = new Schema({
 
 const Phone = mongoose.model('Phone', phoneSchema)
 
-module.exports = { Phone, phoneSchema }
+module.exports = Phone
