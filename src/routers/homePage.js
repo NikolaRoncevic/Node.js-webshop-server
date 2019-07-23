@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 const Phone = require('./../models/phoneModel.js')
-const discountedPhoneModel = require('./../models/discountedPhoneModel.js')
+
 
 router.get('/', async(req, res) => {
     try {
