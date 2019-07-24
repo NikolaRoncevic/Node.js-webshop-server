@@ -50,7 +50,7 @@ const phoneCollection = new PhoneCollection({
 });*/
 
 
-PhoneCollection.
+/* PhoneCollection.
 findOne({}).
 populate({
     path: 'phones',
@@ -62,6 +62,6 @@ exec(function(err, phone) {
         console.log(p.discounted)
     }
     // prints "The author is Ian Fleming"
-});
+}); */
 
 //phone.save().then(() => console.log('saved')).catch((error) => console.log(error))

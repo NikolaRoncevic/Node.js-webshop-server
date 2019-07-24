@@ -1,5 +1,5 @@
 var express = require('express')
-var Phone = require('./../models/phoneModel.js').Phone
+var Phone = require('./../models/phoneModel.js')
 var router = new express.Router()
 const delimiterFilters = '%'
 const delimiterSearchQuery = ' '
@@ -16,84 +16,45 @@ router.get('/search', async(req, res) => {
     let { producer, ramMemory, processor, graphicCard, search } = req.query;
     let query = {};
     let searchArray
+    let producerMatch = [{}]
+    let ramMemoryMatch = [{}]
+    let processorMatch = [{}]
+    let graphicCardMatch = [{}]
+    let nameMatch = [{}]
     if (producer)
-        query.producer = producer.split(delimiterFilters) //filter
+        producerMatch = producer.split(delimiterFilters).map(filter => ({ producer: filter }));
     if (ramMemory)
-        query.ramMemory = ramMemory.split(delimiterFilters) //filter
+        ramMemoryMatch = ramMemory.split(delimiterFilters).map(filter => ({ ramMemory: filter }));
     if (processor)
-        query.processor = processor.split(delimiterFilters) // filter
+        processorMatch = processor.split(delimiterFilters).map(filter => ({ processor: filter }));
     if (graphicCard)
-        query.graphicCard = graphicCard.split(delimiterFilters) // filter
+        graphicCardMatch = graphicCard.split(delimiterFilters).map(filter => ({ graphicCard: filter }));
     if (search) {
         searchArray = search.toLowerCase().split(delimiterSearchQuery) //array of search parameters
-        console.log(searchArray)
-
-
+            //const nameMatch = searchArray.map(word => ({ name: { $regex: `/${word}/`, $options: `i` } }));
+        nameMatch = searchArray.map(word => ({ name: new RegExp(word, 'i') }));
     }
-
     let products
     try {
-        console.log('query: ' + query.producer)
-        products = await Phone.find(query)
-        console.log(typeof query + ' ' + typeof products)
-            //console.log('proizvodi po filterima :' + products)
-        products = await Phone.find(products)
-            /* for (searchParameter of searchArray) {
-                
-                products = await Phone.aggregate([{
-                    $match: products,
-                    $match: {
-                        $or: [{ name: searchParameter },
-                            { processor: searchParameter },
-                            { producer: searchParameter },
-                            { graphicCard: searchParameter }
-                        ]
-                    }
-                }]).lean()
-                console.log('dosao u for ')
-            } */
+        products = await Phone.aggregate([{
+            $match: {
+                $and: [
+                    { $and: nameMatch },
+                    { $or: producerMatch },
+                    { $or: ramMemoryMatch },
+                    { $or: processorMatch },
+                    { $or: graphicCardMatch }
+                ]
+            }
+        }])
+
 
     } catch (e) {
         console.log('greska');
         res.status(500).send(e)
         return
     }
-
-    //console.log(products.length);
-
-    //console.log(products.length)
     res.status(200).send(products)
 })
 
 module.exports = router
-
-
-/*if (searchArray) {
-    for (searchParam of searchArray) {
-        for (product of products) {
-
-            if (searchParam === product.screenSize.toString().toLowerCase()) {
-
-                continue
-            }
-            if (searchParam === product.producer.toLowerCase()) {
-
-                continue
-            }
-            for (let i = 0; i < products.length; i++) {
-                if (products[i] === product) {
-                    console.log('izbacio bratica')
-                    products.splice(i, 1)
-                    i--;
-                }
-            }
-        }
-    }
-
-} else {
-    console.log('doso da ispisem bez searcha')
-    return res.status(200).send(JSON.stringify(products))
-}
-if (products.length === 0) {
-    return res.status(200).send()
-}*/
