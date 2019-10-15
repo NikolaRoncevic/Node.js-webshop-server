@@ -7,7 +7,20 @@ var Phone = require('./../models/phoneModel.js')
 router.get('/:id', async(req, res) => {
     console.log('dosao')
     try {
-        let phone = await Phone.findById(req.params.id)
+        let phone = await Phone.findById(req.params.id).populate('discounted');
+        /* PhoneCollection.
+findOne({}).
+populate({
+    path: 'phones',
+    populate: { path: 'discounted' }
+}).
+exec(function(err, phone) {
+    if (err) return handleError(err);
+    for (p of phone.phones) {
+        console.log(p.discounted)
+    }
+    // prints "The author is Ian Fleming"
+}); */
         if (!phone) {
             res.status(400).send();
         }

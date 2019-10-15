@@ -37,7 +37,8 @@ const phoneCollection = new PhoneCollection({
 
 //phoneCollection.save().then(() => console.log('saved')).catch((error) => console.log(error))
 
-/*const phone = new Phone({
+const phone = new Phone({
+    _id: new mongoose.Types.ObjectId(),
     name: 'iphone 5',
     screenSize: 10,
     processor: rade,
@@ -45,9 +46,9 @@ const phoneCollection = new PhoneCollection({
     ramMemory: ram32,
     producer: 'Apple',
     price: '15000',
-    image: 'nema jos',
+    image: 'iphone8.jpg',
     discounted: discount20
-});*/
+});
 
 
 /* PhoneCollection.
@@ -64,4 +65,4 @@ exec(function(err, phone) {
     // prints "The author is Ian Fleming"
 }); */
 
-//phone.save().then(() => console.log('saved')).catch((error) => console.log(error))
+phone.save().then(() => console.log('saved')).catch((error) => console.log(error))

@@ -6,10 +6,11 @@ const productsRouter = require('./routers/products.js')
 const shoppingCartRouter = require('./routers/shoppingCart.js')
 const infoRouter = require('./routers/info.js')
 const homePageRouter = require('./routers/homePage.js')
+const path = require('path')
 
 const bodyParser = require('body-parser')
 
-const app = express()
+const app = express();
 const port = 3000;
 
 /*
@@ -19,8 +20,12 @@ const port = 3000;
         na korpu vrsiti get zahtev na tu kolekicju i samo puniti komponente tim podacima.
         4. Da li evidentirati pregledanost proizvoda tako sto ce se klikom na link proizvoda raditi update proizvoda i inkrementirati polje broj pregleda za 1?
 */
-
+var cors = require('cors')
+app.use(cors())
 app.use(express.json())
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use('/comments', commentsRouter)
 app.use(searchRouter)
 app.use('/product', productsRouter)
